@@ -21,7 +21,7 @@ export const DUMMY_EVENTS = [
     isFeatured: true,
   },
   {
-    id: 'e1',
+    id: 'e3',
     title: 'Casual Talk with Homies',
     description: 'Long time no chat... Anything fun happened in your life?',
     location: 'Zoom',
