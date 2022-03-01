@@ -31,6 +31,7 @@ export function NotificationContextProvider(props) {
 
   const hideNotificationHandler = () => {
     setActiveNotification(null);
+    console.log('hide');
   };
 
   const context = {
