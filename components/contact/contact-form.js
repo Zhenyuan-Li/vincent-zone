@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Button from '../ui/button';
 
 import Notification from '../ui/notification';
 import classes from './contact-form.module.css';
@@ -115,9 +116,10 @@ function ContactForm() {
             rows="5"
           ></textarea>
         </div>
-        <div className={classes.actions}>
+        {/* <div className={classes.actions}>
           <button>Send Message</button>
-        </div>
+        </div> */}
+        <Button>Send Message</Button>
       </form>
       {notification && (
         <Notification

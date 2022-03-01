@@ -17,7 +17,13 @@ function MainNavigation() {
             <Link href="/posts">Posts</Link>
           </li>
           <li>
+            <Link href="/events">Events</Link>
+          </li>
+          <li>
             <Link href="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link href="/undefined">About Me</Link>
           </li>
         </ul>
       </nav>
