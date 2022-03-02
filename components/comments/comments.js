@@ -9,6 +9,7 @@ function Comments(props) {
   const { eventId } = props;
   const [showComments, setShowComments] = useState(false);
   const [comments, setComments] = useState([]);
+  const [isNoComment, setIsNoComment] = useState(false);
   const [isFetchingComments, setIsFetchingComments] = useState(false);
   const { showNotification } = useContext(NotificationContext);
 
@@ -18,6 +19,9 @@ function Comments(props) {
       fetch(`/api/comments/${eventId}`)
         .then((res) => res.json())
         .then((data) => {
+          if (data.comments.length === 0) {
+            setIsNoComment(true);
+          }
           setComments(data.comments);
           setIsFetchingComments(false);
         });
@@ -74,6 +78,7 @@ function Comments(props) {
       {showComments && <NewComment onAddComment={addCommentHandler} />}
       {showComments && !isFetchingComments && <CommentList items={comments} />}
       {showComments && isFetchingComments && <p>Loading All Comments...</p>}
+      {isNoComment && <p>No comments currently... </p>}
     </section>
   );
 }

@@ -1,6 +1,7 @@
 import Head from 'next/head';
 
 import PostContent from '../../components/posts/post-detail/post-content';
+import Comments from '../../components/comments/comments';
 import { getPostData, getPostFiles } from '../../lib/post-util';
 
 // human readable search engine friendly routes: slug
@@ -14,6 +15,7 @@ function PostDetailPage(props) {
         <meta name="description" content={post.excerpt} />
       </Head>
       <PostContent post={post} />
+      <Comments eventId={post.slug} />
     </>
   );
 }
@@ -23,7 +25,6 @@ export default PostDetailPage;
 export const getStaticProps = async (ctx) => {
   const { params } = ctx;
   const { slug } = params;
-
   const postData = getPostData(slug);
 
   return {

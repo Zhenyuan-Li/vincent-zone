@@ -2,6 +2,7 @@ import {
   connectDatabase,
   insertDocument,
   fetchAllDocuments,
+  isInputValid,
 } from '../../../lib/db-utils';
 
 const handler = async (req, res) => {
@@ -17,7 +18,7 @@ const handler = async (req, res) => {
 
   if (req.method === 'POST') {
     const { email, name, text } = req.body;
-    if (!isInputValid(email, name, message)) {
+    if (!isInputValid(email, name, text)) {
       res.status(422).json({ message: 'Invalid Input' });
       client.close();
       return;
@@ -27,7 +28,7 @@ const handler = async (req, res) => {
     let result;
     try {
       result = await insertDocument(client, 'comments', comment);
-      comment._id = results.insertedId;
+      comment._id = result.insertedId;
       res.status(201).json({ message: 'Added comment.', comment });
     } catch (error) {
       res.status(500).json({ message: 'Inserting data failed' });
@@ -37,7 +38,12 @@ const handler = async (req, res) => {
   if (req.method === 'GET') {
     let document;
     try {
-      document = await fetchAllDocuments(client, 'comments', { _id: -1 });
+      document = await fetchAllDocuments(
+        client,
+        'comments',
+        { _id: -1 },
+        eventId
+      );
       res.status(201).json({ comments: document });
     } catch (error) {
       res.status(500).json({ message: 'Getting comments failed' });

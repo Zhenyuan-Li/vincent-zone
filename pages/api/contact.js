@@ -17,7 +17,7 @@ async function handler(req, res) {
   // Route: POST /api/contact
   if (req.method === 'POST') {
     const { email, name, message } = req.body;
-    console.log(isInputValid(email, name, message));
+
     if (!isInputValid(email, name, message)) {
       res.status(422).json({ message: 'Invalid Input' });
       client.close();
