@@ -97,7 +97,3 @@ const Button = (props) => {
   );
 };
 ```
-
----
-
-This is a note for [a great React course](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) on Udemy developed by [Maximilian Schwarzmüller](https://www.udemy.com/user/maximilian-schwarzmuller/)

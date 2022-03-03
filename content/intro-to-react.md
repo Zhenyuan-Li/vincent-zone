@@ -1,5 +1,5 @@
 ---
-title: 'React Basics: Expense Recorder'
+title: 'React Basics'
 date: '2022-1-9'
 image: interface.png
 excerpt: React is a popular JavaScript library for building user interface. Refresh some basic React knowledge by going through a demo application - Expense Recorder.
