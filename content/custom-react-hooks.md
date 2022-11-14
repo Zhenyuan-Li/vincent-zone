@@ -6,7 +6,11 @@ excerpt: Tired of repeating logic at different component, such as handling Http 
 isFeatured: true
 ---
 
+This is a note for [a great React course](https://www.udemy.com/course/react-the-complete-guide-incl-redux/) on Udemy developed by [Maximilian Schwarzmüller](https://www.udemy.com/user/maximilian-schwarzmuller/)
+
 # Demo 6: Counter & Tasker (Custom Hooks)
+
+[Completed code in Github Repository](https://github.com/Zhenyuan-Li/Udemy-React-v2.0/tree/main/6_Counter_and_Tasker)
 
 ## Introduction
 
