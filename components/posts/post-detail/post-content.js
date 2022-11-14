@@ -35,13 +35,21 @@ function PostContent(props) {
       }
       return <p>{paragraph.children}</p>;
     },
-    code(code) {
-      const { className, children } = code;
-      const language = className.split('-')[1]; // className is something like language-js => We need the "js" part here
-      return (
-        <SyntaxHighlighter style={atomDark} language={language}>
+    code({ node, inline, className, children, ...props }) {
+      const match = /language-(\w+)/.exec(className || '');
+      return !inline && match ? (
+        <SyntaxHighlighter
+          // eslint-disable-next-line react/no-children-prop
+          children={String(children).replace(/\n$/, '')}
+          style={atomDark}
+          language={match[1]}
+          PreTag="div"
+          {...props}
+        />
+      ) : (
+        <code className={className} {...props}>
           {children}
-        </SyntaxHighlighter>
+        </code>
       );
     },
   };
